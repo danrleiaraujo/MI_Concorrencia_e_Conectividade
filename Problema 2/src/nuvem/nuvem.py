@@ -14,9 +14,10 @@ nevoaDB = {
 '''
 # banco de dados com os dados das nevoas
 nevoaDB = {}
+
 # conexão mqtt com todas as nevoas
 nevoas = {
-    'broker': 'localhost',      # mudar para maquina central do larsid
+    'broker': 'localhost',      
     'port': 1883,
     'topicPub': "nuvem",     
     'topicSub': "nuvem/#"
@@ -107,6 +108,7 @@ def tempoReal(param):
 def run ():
     global clientNevoa
     subscribe(clientNevoa, nevoas['topicSub'])
+    clientNevoa.loop_forever()
 
 
 run()

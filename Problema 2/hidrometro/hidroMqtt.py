@@ -85,9 +85,10 @@ def publish(client):
         # resultado da tentativa : [0, 1]
         status = result[0]
         if status == 0:
-            print(f"Send `{msg}` to topic `{topicpub}`")
+            print(f"Mandando: `{msg}`, para o topico: `{topicpub}`")
+            print()
         else:
-            print(f"Failed to send message to topic {topicpub}")
+            print(f"Falha ao mandar mensagem para o topico: {topicpub}")
 
 def atualizaConsumo():
     while True:
