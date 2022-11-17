@@ -1,0 +1,144 @@
+<php <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Página Início.">
+        <title>MI  - Início</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename = 'gotas 1.svg')}}" type="image/x-icon">
+        
+    </head>
+
+    <body>
+        <header class="cabecalho">
+            <img class="logoMI" src="{{ url_for('static', filename = 'gotas 1.svg')}}" alt="icone da MI">
+            <nav class="linkCabecalho">
+                <a class="linkCabecalhoItem" href="/GET">Início</a>
+                <a class="linkCabecalhoItem" href="/GET/Hidrometros">Hidrometros</a>
+                <a class="linkCabecalhoItem" href="/login">Sair</a>
+            </nav>
+        </header>
+
+        <main class="conteudo">
+            <section class="introducao">
+                <div class="tituloIntroducao">
+                    <h1 class="tituloIntroducao1">Seja bem-vindo</h1>
+                    <h1 class="tituloIntroducao2"> Esta é nossa possível solução para Problema 2 do MI-Concorrência e Conectividade</h1>
+                </div>
+                <h2 class="subtituloIntroducao">Quem Somos?</h2>
+                <h2 class="textoIntroducao">Nossa equipe é formado por:</h2>
+                <h3 class="textoIntroducao">Amanda - Estudante de engenharia de computação</h3>
+                <h3 class="textoIntroducao">Danrlei Almeida Araujo - Estudante de engenharia de computação</h3>
+            </section>
+        </main>
+
+        <footer class="rodape">
+            <img src="{{ url_for('static', filename = 'redes.svg')}}" alt="MI MI-Concorrência e Conectividade" height="100px">
+        </footer>
+
+    </body>
+    <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala&display=swap');
+
+    * {
+        margin: 0;
+        border: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: sans-serif;
+    }
+
+    body{
+        background: linear-gradient(68.15deg, #24232F 16.62%, #516A9B 85.61%);
+        font-size: 100%;
+        display:flex;
+        align-items: center;
+    }
+
+    .cabecalho {
+        display:flex;
+        position:fixed;
+        width:100%;
+        top:0;
+        left:0;
+        background: linear-gradient(to right,#516A9B, #24232F);
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 0.4px solid #FFFFFF;
+    }
+    .linkCabecalho{
+        display: flex;
+        gap: 42px;
+    }
+    .linkCabecalhoItem{
+        padding-right: 30px;
+        font-family: 'Sarala', sans-serif;
+        color: rgba(231, 236, 255, 1);
+    }
+    .logoMI{
+        padding-left: 30px;
+        height: 42px;
+    }   
+
+    .conteudo{
+        min-height: 83vh;
+        display:flex;
+        align-items: center;
+    }
+    .introducao{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tituloIntroducao{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 10px;
+        min-width: 40rem;
+    }
+    .tituloIntroducao1{
+        color: #FFFFFF;
+        font-family: 'Righteous', cursive;
+        font-weight: 400;
+        font-size: 40px;
+        padding-bottom: 20px;
+    }
+    .tituloIntroducao2{
+        color:rgba(29, 111, 183, 1);
+        font-family: 'Righteous', cursive;
+        font-weight: 400;
+        font-size: 40px;
+        text-align:justify;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    .subtituloIntroducao{
+        color:rgba(29, 111, 183, 1);
+        font-family: 'Righteous', cursive;
+        font-weight: 400;
+        font-size: 40px;
+        padding-bottom: 10px;
+    }
+    .textoIntroducao{
+        text-align: justify;
+        font-family: 'Sarala', sans-serif;
+        color: #FFFFFF;
+        font-size: 20px;
+    }
+    .rodape{
+        background: linear-gradient(to right,#516A9B, #24232F);
+        border-top: 0.4px solid #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    </style>
+</html>
