@@ -42,9 +42,9 @@ password = ''
 def connect_mqtt(username, password) -> mqtt_client:
     def on_connect(client, userdata, flags, rc):
         if rc == 0:
-            print("Connected to MQTT Broker!")
+            print()
         else:
-            print("Failed to connect, return code %d\n", rc)
+            print("Falha de conexão, código: %d\n", rc)
 
     client = mqtt_client.Client(client_id)
     client.username_pw_set(username, password)
@@ -99,6 +99,7 @@ def atualizaConsumo():
             hidrometro.setConsumo(novoValor); #Adiciona o novo valor no hidrometro
             time.sleep(2)
 
+#Fica o tempo todo verificando se existe vazamento:
 def  verificaVazamento():
     while True:
         if hidrometro.vazamentos():
@@ -118,6 +119,7 @@ def bloqueioInsta():
         elif (contaPaga == False): 
             hidrometro.novoStatus(False);
 
+#Função para desbloqueio do hidrometro
 def ativaHidro():
     funcionamento = hidrometro.getStatus()
     contaPaga= hidrometro.getContaPaga()
@@ -128,12 +130,6 @@ def ativaHidro():
         if (contaPaga == True):
             if (vazao < valorMax):
                 hidrometro.novoStatus(True)
-
-''' Futuras funções
-def mediaConsumo(ConsumoUsers, SomaUsers):
-    mediaConsumo = ConsumoUsers/SomaUsers;
-    return mediaConsumo; 
-    ''' 
 
 def run():
     #Conexão com o client Mqtt
