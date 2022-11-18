@@ -14,27 +14,23 @@ from paho.mqtt import client as mqtt_client
 
 # infos dos hidrometros -------------------------------------
 '''
-Banco de dados:
-Cada hidrômetro será um dicionário seguindo:
+Hidrômetros neste nó (db)
+Cada hidrômetro será uma entry no dicionário seguindo:
 {
-    'codigoH': matricula (int),     
-    'consumo': consumo (int),
-    'data': data (str),
-    'funcionamento': status (boolean)
+    codigoH: int, 
+    consumo: int (em m3),
+    data: datatime (datetime.now),
+    funcionamento: boolean
 }
 '''
 #Variaveis globais
 hidroDB= {}
-
 locais = ['norte','leste','oeste','sul'];
-local = locais[0]
-
+local = locais[2]
 client_id = f'hidrometro-{local}'
 no_id = local
-
 topicpub = 'hidrometros/' + local + '/status/'
 topicsub= 'hidrometros/' + local + '/consumo/'
-
 username = "" 
 password = ""
 

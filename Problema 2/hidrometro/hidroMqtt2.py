@@ -29,7 +29,7 @@ port = 1884
 
 #Define o local do hidrometro de maneira aleatória
 locais = ['norte','leste','oeste','sul'];
-local = locais[0]
+local = locais[2]
 topicpub = "hidrometros/" + local + "/consumo/"
 topicSub= "hidrometros/" + local + "/status/"
 
@@ -38,8 +38,8 @@ client_id = f'hidrometro-{MATRICULA}'
 username = ''
 password = ''
 
-'''Bloco de conexão do hidrometro'''
-def connect_mqtt(username, password) -> mqtt_client: 
+
+def connect_mqtt(username, password) -> mqtt_client:
     def on_connect(client, userdata, flags, rc):
         if rc == 0:
             print()
@@ -52,30 +52,28 @@ def connect_mqtt(username, password) -> mqtt_client:
     client.connect(broker, port)
     return client
 
-#Subscribe na nevoa para ouvir requisições: -----------------------
+
 def subscribe(client: mqtt_client):
     def on_message(client, userdata, msg):
         print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
-        msgRecebida = str(MATRICULA) #Transforma em str a matricula para comparação
-        if msg.payload.decode() == msgRecebida + "/ativo": #Verifica se o que foi recebido é "codigoH/ativo"
-            ativaHidro() #Caso verdadeiro, vai para função de verificação para ativação
-        elif msg.payload.decode() == msgRecebida + "/bloqueio": #caso seja "codigoH/bloqueio":
-            hidrometro.novoStatus(False) #Bloqueia o hidrometro
+        msgRecebida = str(MATRICULA)
+        if msg.payload.decode() == msgRecebida + "/ativo":
+            ativaHidro()
+        elif msg.payload.decode() == msgRecebida + "/bloqueio":
+            hidrometro.novoStatus(False)
     client.subscribe(topicSub)
     client.on_message = on_message
-    #----------------------------------------------------------------
-#Publish para envio de dados ------------------------
+
 def publish(client):
     while True:
-        time.sleep(1) #Tempo para não sobrecarregar o envio e ser possivel a leitura
-        now = datetime.now() #recebe o horario exato
-        data = now.strftime("%d/%m/%Y %H:%M:%S") #transforma em str
-        matricula = hidrometro.getMatricula() #recebe a matricula do hidrometro atual
-        consumo = hidrometro.getConsumo() #recebe a consumo do hidrometro atual
-        status = hidrometro.getStatus() #recebe a status do hidrometro atual
+        time.sleep(1)
+        now = datetime.now()
+        data = now.strftime("%d/%m/%Y %H:%M:%S")
+        matricula = hidrometro.getMatricula()
+        consumo = hidrometro.getConsumo()
+        status = hidrometro.getStatus()
 
-        #Criação do dicionário para o envio de dados
-        hidrometroNovo = { 
+        hidrometroNovo = {
             'codigoH': matricula,     
             'consumo': consumo,
             'data': data,
@@ -86,26 +84,25 @@ def publish(client):
         result = client.publish(topicpub, f'{msg}') #tenta fazer o publish
         # resultado da tentativa : [0, 1]
         status = result[0]
-        if status == 0: #Caso seja um sucesso:
+        if status == 0:
             print(f"Mandando: `{msg}`, para o topico: `{topicpub}`")
             print()
-        else: #Caso contrário:
+        else:
             print(f"Falha ao mandar mensagem para o topico: {topicpub}")
 
-#Função para atualização de consumo do hidrometro
 def atualizaConsumo():
     while True:
-        if hidrometro.funcionamento == True: #Caso não esteja bloqueado
-            consumo = hidrometro.getConsumo() #Salva em uma variavel o valor do consumo
-            vazao = hidrometro.getVazao() #Salva em uma variavel o valor da vazão
+        if hidrometro.funcionamento == True:
+            consumo = hidrometro.getConsumo() #Salva em uma variavel o valor
+            vazao = hidrometro.getVazao() #Salva em uma variavel o valor
             novoValor = consumo + vazao; #Soma consumo + vazão
             hidrometro.setConsumo(novoValor); #Adiciona o novo valor no hidrometro
-            time.sleep(2) #Tempo para uma nova atualização
+            time.sleep(2)
 
 #Fica o tempo todo verificando se existe vazamento:
 def  verificaVazamento():
     while True:
-        if hidrometro.vazamentos(): #Caso a vazão seja maior que o vazão padrão:
+        if hidrometro.vazamentos():
             print("Alerrtaaa vazamento!")
         time.sleep(2)
 
@@ -117,9 +114,9 @@ def bloqueioInsta():
         valorMax = hidrometro.getValorMax()
         contaPaga = hidrometro.getContaPaga()
 
-        if (vazao > valorMax): #verifica caso tenha vazão maior que o valor máximo estabelecido
+        if (vazao > valorMax):
             hidrometro.novoStatus(False)
-        elif (contaPaga == False):  #verifica se a conta do usuario está paga
+        elif (contaPaga == False): 
             hidrometro.novoStatus(False);
 
 #Função para desbloqueio do hidrometro
@@ -129,10 +126,10 @@ def ativaHidro():
     vazao= hidrometro.getVazao()
     valorMax = hidrometro.getValorMax()
 
-    if(funcionamento == False): #Verifica se está bloqueado
-        if (contaPaga == True): #Caso esteja, verifica se a conta está paga
-            if (vazao < valorMax): #Caso esteja, verifica se a vazão é menor que o valor máximo estabelecido
-                hidrometro.novoStatus(True) #Caso todas sejam verdadeiras, ativa o hidrometro
+    if(funcionamento == False):
+        if (contaPaga == True):
+            if (vazao < valorMax):
+                hidrometro.novoStatus(True)
 
 def run():
     #Conexão com o client Mqtt
