@@ -91,7 +91,7 @@
 	<h2><p><b>Funcionamento:</b></p></h2>
 	<h3><p><b>Diagrama da Arquitetura da distribuida:</b></p></h3>
 	<div align="center"> 
-	<img src= "https://github.com/danrleiaraujo/MI_Concorrencia_e_Conectividade/blob/main/Problema%202/static/DiagramaConcorrenciaP2.png" width = "30px">
+	<img src= "https://github.com/danrleiaraujo/MI_Concorrencia_e_Conectividade/blob/main/Problema%202/static/DiagramaConcorrenciaP2.png">
 	<div>
 	<h3><p><b>Hidrometro:</b></p></h3>
 	<p align="justify"> 
