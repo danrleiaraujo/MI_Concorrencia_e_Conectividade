@@ -92,7 +92,7 @@
 	<h3><p><b>Diagrama da Arquitetura da distribuida:</b></p></h3>
 	<div align="center"> 
 	<img src= "https://github.com/danrleiaraujo/MI_Concorrencia_e_Conectividade/blob/main/Problema%202/static/DiagramaConcorrenciaP2.png">
-	<div>
+	</div>
 	<h3><p><b>Hidrometro:</b></p></h3>
 	<p align="justify"> 
         O hidrometro seria um gerador de dados, além disso seria identificado com qual região esse hidrometro estaria, sendo ela <b>Norte, Sul, Leste, Oeste.</b> Eles enviam além de seus identificadores, o consumo da residência em m³, a hora exata de sua medição e o estado de funcionamento.
