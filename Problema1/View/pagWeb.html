@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Seja bem-vindo a página ínicial do consumo de água.">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" type="text/css" href="/Problema1/Public/CSS/style.css" rel= "stylesheet">
+    <link rel="shortcut icon" href="/Problema1/Public/Images/gotas 1.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <img class="iconeEcompJr" src="/Problema1/Public/Images/gotas 1.svg" alt="icone da MI-REDES">
+        <nav class="linkCabecalho">
+            <a class="linkCabecalhoItem" href="http://127.0.0.1:8000/Problema1/View/pagWeb.html">Início</a>
+            <a class="linkCabecalhoItem" href="http://127.0.0.1:8000/Problema1/View/pagWeb.html">Entrar</a>
+            <a class="linkCabecalhoItem" href="http://127.0.0.1:8000/">Sair</a>
+        </nav>
+    </header>
+
+
+    <main class="conteudo">
+        <h1 class="titulo">Dados</h1>
+        <div class="areaDaBusca">
+            <div class="busca">
+                <form class="Busca" action="">
+                    <h1 class="tituloConteudo">Busca</h1>
+                    <div class="input-field">
+                        <input type="text" name="membro" id="membro" placeholder="Coloque a matricula">
+                        <div class="underline"></div>
+                    </div>
+                    <input class="botaoPesquisar" type="submit" value="Iniciar Pesquisa">
+
+                </form>
+            </div>
+            <div class="resultado">
+                <table class="tabela">
+                    <thead class="topo">
+                        <tr class="coluna">
+                            <th class="linha1">Matricula</td>
+                            <th class="linha1">Consumo</td>
+                        </tr>
+                    </thead>
+                    
+                    <tbody class="corpo">
+                        <tr class="coluna">
+                            <td class="linha">11122266</td>
+                            <td class="linha">4 m³/s</td>
+                        </tr>
+                        <tr class="coluna">
+                            <td class="linha">179933</td>
+                            <td class="linha">4 m³/s</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <img class="rodapeImagem" src="/Problema1/Public/Images/redes.svg" alt="MI - Redes" height="40">
+    </footer>
+
+</body>
+
+</html>

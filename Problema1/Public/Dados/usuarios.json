@@ -1,0 +1,92 @@
+[
+    {
+        "nome": "Ana Maria",
+        "matricula": "19231786",
+        "statusConta": "pago",
+        "endereco": "Av Coronel Plinio da Silva Gomes, 481",
+        "senha": "1010",
+        "contas": [
+            {
+                "mes": "08",
+                "ano": "2022",
+                "valor": 150.50,
+                "consumo": [
+                    {
+                        "quantidade_m3": 10,
+                        "data":"2022-07-15",
+                        "hora": "12:00:00"
+                    },
+                    {
+                        "quantidade_m3": 44.10,
+                        "data":"2022-07-31",
+                        "hora": "12:00:00"
+                    }
+                ],
+                "statusConta": "fechado"
+            },            
+            {
+                "mes": "09",
+                "ano": "2022",
+                "valor": 130.50,
+                "consumo": [
+                    {
+                        "quantidade_m3": 16,
+                        "data":"2022-08-15",
+                        "hora": "13:00:00"
+                    },
+                    {
+                        "quantidade_m3": 44.10,
+                        "data":"2022-08-30",
+                        "hora": "11:00:00"
+                    }
+                ],
+                "statusConta": "fechado"
+            }
+        ]
+    },
+    {
+        "nome": "Jose Antonio",
+        "matricula": "19111787",
+        "statusConta": "atrasado",
+        "endereco": "Av José Botelho, 522",
+        "senha": "1212",        
+        "contas": [
+            {
+                "mes": "08",
+                "ano": "2022",
+                "valor": 150.50,
+                "consumo": [
+                    {
+                        "quantidade_m3": 10,
+                        "data":"2022-07-15",
+                        "hora": "12:00:00"
+                    },
+                    {
+                        "quantidade_m3": 44.10,
+                        "data":"2022-07-31",
+                        "hora": "12:00:00"
+                    }
+                ],
+                "statusConta": "fechado"
+            },            
+            {
+                "mes": "09",
+                "ano": "2022",
+                "valor": 130.50,
+                "consumo": [
+                    {
+                        "quantidade_m3": 16,
+                        "data":"2022-08-15",
+                        "hora": "13:00:00"
+                    },
+                    {
+                        "quantidade_m3": 44.10,
+                        "data":"2022-08-30",
+                        "hora": "11:00:00"
+                    }
+                ],
+                "statusConta": "fechado"
+            }
+        ]
+    }   
+]
