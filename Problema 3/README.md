@@ -52,7 +52,6 @@
         <h3><b>Interfaces do administrador:</b></h3>
 		<li>Adicionar/remover produtos :heavy_multiplication_x:</li>
 		<li>Verificação de produtos cadastrados :heavy_multiplication_x:</li>
-		<li>Documentação do código :heavy_check_mark:</li>
 	</ul>
 </div>
 
