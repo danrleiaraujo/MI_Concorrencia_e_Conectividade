@@ -7,7 +7,7 @@ def adicionar_produtos(nome, qtd, descricao, preco):
     #Criação do produto:
     produto = {"quantidade" : qtd, "desc_produto": descricao, "preco_produto" : preco}
     #Salva o produto e sua quantidade no dicionário de produtos ofertados.
-    produtos_ofertados[nome] = produto;
+    produtos_ofertados[nome] = produto
 
 #Função para remover certa quantidade do produto.
 def remover_produtos(nome, qtd):
@@ -36,7 +36,7 @@ def remover_produtos(nome, qtd):
 
 def get_produtos_ofertados():
     global produtos_ofertados
-    return produtos_ofertados;
+    return produtos_ofertados
 
 def run():
     ''' ----------- TESTE ------------------------ '''
