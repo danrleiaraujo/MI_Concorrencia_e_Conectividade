@@ -24,6 +24,10 @@
             </div>
             <h2>Carrinho:</h2>
             <div id="carrinho">
+            </div>            
+            <h2>Finalizar a compra:</h2>
+            <div id="finalizar">
+                <a class="comprar" href = "#">Finalizar a compra!<a/>
             </div>
         </main>
 
@@ -39,21 +43,27 @@
         const items =[
             {
               id: 0,
-              nome: 'camisa',
+              nome: 'Camisa',
+              descricao:'Camisa preta',
               img:"{{ url_for('static', filename = 'camisa.jpg')}}",
-              quantidade: 0  
+              quantidade: 5,  
+              quantidade_carrinho: 0  
             },            
             {
                 id: 1,
-                nome: 'short',
+                nome: 'Short',
+                descricao:'Short jeans',
                 img:"{{ url_for('static', filename = 'short.jpg')}}",
-                quantidade: 0  
+                quantidade: 3,  
+                quantidade_carrinho: 0  
               },            
               {
                   id: 2,
-                  nome: 'vestido',
+                  nome: 'Vestido',
+                  descricao:'Vestido longo',
                   img:"{{ url_for('static', filename = 'vestido.jpg')}}",
-                  quantidade: 0  
+                  quantidade: 1,  
+                  quantidade_carrinho: 0   
                 },
         ]
         inicializarLoja = () =>{
@@ -62,9 +72,11 @@
                 conteinerProdutos.innerHTML += `
                 
                 <div class = "produto-single">
-                    <img height="200px" src ="`+val.img+ `"/>
-                    <p>`+val.nome+`</p>
-                    <a key="`+val.id+`" href = "#">adicionar ao carrinho!<a/>
+                    <img  src ="`+val.img+ `"/>
+                    <p><b>`+val.nome+`</b></p>
+                    <p>`+val.descricao+`</p>
+                    <p> Restam: <b>`+val.quantidade+`</b> quantidades</p>
+                    <a class = "carrinho" key="`+val.id+`" href = "#">adicionar ao carrinho!<a/>
                 </div>
                 `; 
             })
@@ -75,20 +87,23 @@
             var conteinerCarrinho = document.getElementById('carrinho');
             conteinerCarrinho.innerHTML ="";
             items.map((val) =>{
-                if(val.quantidade >0){
+                if(val.quantidade_carrinho >0){
                     conteinerCarrinho.innerHTML += `
-                    <p>`+val.nome+` | quantidade: `+val.quantidade+`</p>
-                    <hr>
+                    <div class = "carrinho-single">
+                        <p>`+val.nome+` | quantidade: `+val.quantidade_carrinho+`</p>
+                        <hr>
+                    </div>
                 `;}
             })
         }
 
-        var links = document.getElementsByTagName ('a');
+        var links = document.getElementsByClassName("carrinho");
 
         for (var i=0; i < links.length; i++){
             links[i].addEventListener("click", function(){
                 let key = this.getAttribute('key');
-                items[key].quantidade++;
+                if(items[key].quantidade_carrinho < items[key].quantidade)
+                    items[key].quantidade_carrinho++;
                 atualizarCarrinho();
                 return false;
             })

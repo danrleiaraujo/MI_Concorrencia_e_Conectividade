@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+*{
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .cabecalho {
     display:flex;
@@ -12,6 +19,7 @@
     justify-content: space-between;
     padding: 10px;
     border-bottom: 0.4px solid #24232F;
+    background:  hwb(92 65% 7%);
 }
 .linkCabecalho{
     display: flex;
@@ -20,7 +28,7 @@
 .linkCabecalhoItem{
     padding-right: 30px;
     font-family: 'Sarala', sans-serif;
-    color: #24232F;
+    color: white;
 }
 .logoMI{
     padding-left: 30px;
@@ -28,31 +36,95 @@
 }   
 
 
-   
 .conteudo{
-    padding-top: 40px;
+    max-width: 100%;
+    padding-top: 60px;
+    min-height: 91vh; 
     display: flex;
     flex-direction: column;
+    background: linear-gradient(to right,#00467F, #A5CC82);
+}
+h2{
+    padding: 10px 0;
+    text-align: center;
+    color: white;
 }
 
-#carrinho, #produtos{
+#produtos{
     max-width: 900px;
     margin: 0 auto;
     padding: 0 2%;
     display: flex;
 }
+#carrinho, #finalizar{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2%;
+    display: block;
+}
+
 
 .produto-single{
     width: 33.3%;
     padding: 0 20px;
+    margin-right: 1%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
-
+.produto-single img{
+    max-width: 100%;
+    border: 1px solid #00467F;
+}
+.produto-single p{
+    text-align: center;
+    font-size: 16px;
+    background-color: white;
+}
+.produto-single a{
+    text-decoration: none;
+    color: white;
+    background-color: #A5CC82;
+    text-align: center;
+    display: block;
+    padding: 4px 0;
+    font-size: 18px;
+}
+.carrinho-single p{
+    text-align: center;
+    font-size: 16px;
+    background-color: white;
+}
+.comprar{
+    text-decoration: none;
+    color: white;
+    background-color: #00467F;
+    text-align: center;
+    display: block;
+    padding: 4px 0;
+    font-size: 18px;
+}
 
 .rodape{
     display:flex;
-    position:fixed;
     border-top: 0.4px solid #24232F;
     padding: 10px;
     width:100%;
     justify-content: center;
+    background:  #A5CC82;
+    max-width: 100%;
+}
+@media screen and (max-width: 768px){
+    .produto-single{
+        width: 100%;
+        margin-right: 0;
+    }
+    .produto-single img{
+        max-width: 100%;
+        border: 1px solid #00467F;
+        justify-self: center;
+    }        
+    #produtos{
+        display: flex;
+        flex-wrap: wrap;
+    }      
 }
