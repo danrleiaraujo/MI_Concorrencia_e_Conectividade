@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Página Início.">
+        <title>MI  - Início</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename = 'logo.png')}}" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css')}}" rel= "stylesheet">
+    </head>
+
+    <body>
+        <header class="cabecalho">
+            <img class="logoMI" src="{{ url_for('static', filename = 'smartShop.png')}}" alt="icone da MI">
+            <nav class="linkCabecalho">
+                <a class="linkCabecalhoItem" href="/">Início</a>
+                <a class="linkCabecalhoItem" href="/login">Login</a>
+            </nav>
+        </header>
+
+        <main class="conteudo">
+            <h2>Vitrine:</h2>
+            <div id="produtos">
+            </div>
+            <h2>Carrinho:</h2>
+            <div id="carrinho">
+            </div>
+        </main>
+
+        <footer class="rodape">
+            <img src="{{ url_for('static', filename = 'redes.svg')}}" alt="MI MI-Concorrência e Conectividade" height="50px">
+        </footer>
+
+    </body>
+    <style>
+
+    </style>
+    <script>
+        const items =[
+            {
+              id: 0,
+              nome: 'camisa',
+              img:"{{ url_for('static', filename = 'camisa.jpg')}}",
+              quantidade: 0  
+            },            
+            {
+                id: 1,
+                nome: 'short',
+                img:"{{ url_for('static', filename = 'short.jpg')}}",
+                quantidade: 0  
+              },            
+              {
+                  id: 2,
+                  nome: 'vestido',
+                  img:"{{ url_for('static', filename = 'vestido.jpg')}}",
+                  quantidade: 0  
+                },
+        ]
+        inicializarLoja = () =>{
+            var conteinerProdutos = document.getElementById('produtos');
+            items.map((val) =>{
+                conteinerProdutos.innerHTML += `
+                
+                <div class = "produto-single">
+                    <img height="200px" src ="`+val.img+ `"/>
+                    <p>`+val.nome+`</p>
+                    <a key="`+val.id+`" href = "#">adicionar ao carrinho!<a/>
+                </div>
+                `; 
+            })
+        }
+        inicializarLoja();
+
+        atualizarCarrinho = () =>{
+            var conteinerCarrinho = document.getElementById('carrinho');
+            conteinerCarrinho.innerHTML ="";
+            items.map((val) =>{
+                if(val.quantidade >0){
+                    conteinerCarrinho.innerHTML += `
+                    <p>`+val.nome+` | quantidade: `+val.quantidade+`</p>
+                    <hr>
+                `;}
+            })
+        }
+
+        var links = document.getElementsByTagName ('a');
+
+        for (var i=0; i < links.length; i++){
+            links[i].addEventListener("click", function(){
+                let key = this.getAttribute('key');
+                items[key].quantidade++;
+                atualizarCarrinho();
+                return false;
+            })
+        }
+
+
+
+    </script>
+</html>

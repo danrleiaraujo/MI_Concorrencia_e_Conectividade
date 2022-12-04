@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala&display=swap');
+
+
+.cabecalho {
+    display:flex;
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 0.4px solid #24232F;
+}
+.linkCabecalho{
+    display: flex;
+    gap: 42px;
+}
+.linkCabecalhoItem{
+    padding-right: 30px;
+    font-family: 'Sarala', sans-serif;
+    color: #24232F;
+}
+.logoMI{
+    padding-left: 30px;
+    height: 42px;
+}   
+
+
+   
+.conteudo{
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+#carrinho, #produtos{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2%;
+    display: flex;
+}
+
+.produto-single{
+    width: 33.3%;
+    padding: 0 20px;
+}
+
+
+.rodape{
+    display:flex;
+    position:fixed;
+    border-top: 0.4px solid #24232F;
+    padding: 10px;
+    width:100%;
+    justify-content: center;
+}
