@@ -12,6 +12,6 @@ def index():
 #Página de login
 @app.route("/login", methods = ['GET', 'POST'])
 def login():
-    print()
+    return render_template ('login.html')
 
 app.run(debug=True)

@@ -1,0 +1,50 @@
+<php <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Página de login para users do MI-Concorrência e Conectividade.">
+        <title>MI - Login</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename = 'logo.png')}}" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'styleLogin.css')}}" rel= "stylesheet">
+
+    </head>
+
+    <body>
+
+        <header class="cabecalho">
+            <img class="logoMI" src="{{ url_for('static', filename = 'smartShop.png')}}" alt="icone da MI">
+            <nav class="linkCabecalho">
+                <a class="linkCabecalhoItem" href="/">Início</a>
+                <a class="linkCabecalhoItem" href="/login">Login</a>
+            </nav>
+        </header>
+
+        <main class="conteudo">
+            <section class="conteudo-principal">
+                <div class="conteudo-principal-titulo">
+                    <h1 class="tituloConteudo">Login</h1>
+                    <img class="logoMI" src="{{ url_for('static', filename = 'logo.png')}}" alt="icone da MI" height="100">
+                </div>
+                <form class="login" action="" method="post">
+                    <div class="input-field">
+                        <input type="text" name="usuario" id="usuario" placeholder="Coloque seu usuario">
+                        <div class="underline"></div>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="text" name="senha" id="senha" placeholder="Coloque sua senha">
+                        <div class="underline"></div>
+                    </div>
+                    <input class="botaoInicar" type="submit" value="Iniciar sessão">
+                </form>
+            </section>
+        </main>
+
+        <footer class="rodape">
+            <img class="rodapeImagem" src="{{ url_for('static', filename = 'redes.svg')}}" alt="EcompJr" height="40">
+        </footer>
+
+    </body>
+
+</html>

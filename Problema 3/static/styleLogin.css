@@ -9,7 +9,7 @@
     font-family: sans-serif;
 }
 body{
-    background: linear-gradient(68.15deg, #24232F 16.62%, #516A9B 85.61%);
+    background: linear-gradient(to right,#00467F, #A5CC82);
     font-size: 100%;
 }
 
@@ -19,13 +19,12 @@ body{
     width:100%;
     top:0;
     left:0;
-    background: linear-gradient(to right,#516A9B, #24232F);
-    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 0.4px solid #FFFFFF;
+    border-bottom: 0.4px solid #24232F;
+    background:  hwb(92 65% 7%);
 }
 .linkCabecalho{
     display: flex;
@@ -36,7 +35,7 @@ body{
     font-family: 'Sarala', sans-serif;
     color: rgba(231, 236, 255, 1);
 }
-.iconeEcompJr{
+.logoMI{
     padding-left: 30px;
     height: 42px;
 }   
@@ -51,10 +50,10 @@ body{
     justify-content: center;
 }
 .conteudo-principal{
-    background: rgba(194, 220, 238, 1);
+    background: #ccf1ab;
     max-width: 350px;
     min-width: 10vw;
-    min-height: 40vh;
+    min-height: 30vh;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0,2) ;
     border-radius: 8px;
     padding: 1rem;
@@ -72,14 +71,14 @@ body{
     align-items: stretch;
 }
 .tituloConteudo{
-    color: rgba(81, 106, 155, 1);
+    color: #2b85ce;
     font-family: 'Righteous', cursive;
     font-weight: 400;
     font-size: 40px;
 }
 .link{
     font-family: 'Sarala', sans-serif, px;
-    color: rgba(81, 106, 155, 1);
+    color: #00467F;
     display: flex;
     justify-content:center;
     font-size: 13px;
@@ -98,7 +97,7 @@ body{
     color: #FFFFFF;
     border-radius: 3px;
     padding: 0.5rem;
-    background: #516A9B;
+    background: rgba(154, 203, 232, 1);
     margin-bottom: 0.3rem;
 }
 .input-field input::placeholder{
@@ -106,7 +105,7 @@ body{
 }
 form input[type="submit"]{
     padding: 0.5rem;
-    background: linear-gradient(to left, rgba(81, 106, 155, 1),rgba(81, 106, 155, 0));
+    background: linear-gradient(to left, #2b85ce,rgba(81, 106, 155, 0));
     cursor: pointer;
     color: #FFFFFF;
     font-size: 0.9rem;
@@ -117,15 +116,15 @@ form input[type="submit"]{
 
 form input[type="submit"]:hover{
     letter-spacing: 0.5px;
-    background: linear-gradient(to right,rgba(81, 106, 155, 1),rgba(81, 106, 155, 0));
+    background: linear-gradient(to right,#2b85ce,rgba(81, 106, 155, 0));
 }
 
 .rodape{
-    position: relative;
-    background: linear-gradient(to right,#516A9B, #24232F);
-    border-top: 0.4px solid #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display:flex;
+    border-top: 0.4px solid #24232F;
     padding: 10px;
+    width:100%;
+    justify-content: center;
+    background:  #A5CC82;
+    max-width: 100%;
 }
