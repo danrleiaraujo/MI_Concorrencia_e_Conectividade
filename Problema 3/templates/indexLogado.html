@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Página Início.">
+        <title>Olá ADM</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename = 'logo.png')}}" type="image/x-icon">
+        
+    </head>
+
+    <body>
+        <header class="cabecalho">
+            <img class="logoMI" src="{{ url_for('static', filename = 'smartShop.png')}}" alt="icone da MI">
+            <nav class="linkCabecalho">
+                <a class="linkCabecalhoItem" href="">Início</a>
+                <a class="linkCabecalhoItem" href="/login">Sair</a>
+            </nav>
+        </header>
+
+        <main class="conteudo">
+            <section class="introducao">
+                <div class="tituloIntroducao">
+                    <h1 class="tituloIntroducao1">Seja bem-vindo</h1>
+                    <h1 class="tituloIntroducao2"> Olá {{user}} </h1>
+                </div>
+                <h2 class="subtituloIntroducao">O que deseja fazer?</h2>
+                <div class="opcoesUsuarios">
+                    <h3 class="subtituloIntroducao">Usuarios:</h3>
+                    <ul>
+                        <li><a class ="links" href="">Adicionar</a></li>
+                        <li><a class ="links" href="">Verificar</a></li>
+                        <li><a class ="links" href="">Remover</a></li>
+                    </ul>
+                </div>                
+                <div class="opcoesProdutos">
+                    <h3 class="subtituloIntroducao">Produtos:</h3>
+                    <ul>
+                        <li><a class ="links" href="">Adicionar</a></li>
+                        <li><a class ="links" href="">Verificar</a></li>
+                        <li><a class ="links" href="">Remover</a></li>
+                    </ul>
+                </div>
+                
+            </section>
+        </main>
+
+        <footer class="rodape">
+            <img src="{{ url_for('static', filename = 'redes.svg')}}" alt="MI MI-Concorrência e Conectividade" height="100px">
+        </footer>
+
+    </body>
+    <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+    * {
+        margin: 0;
+        border: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: sans-serif;
+    }
+
+
+    .cabecalho {
+        display:flex;
+        position:fixed;
+        width:100%;
+        top:0;
+        left:0;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 0.4px solid #24232F;
+        background:  hwb(92 65% 7%);
+    }
+    .linkCabecalho{
+        display: flex;
+        gap: 42px;
+    }
+    .linkCabecalhoItem{
+        padding-right: 30px;
+        font-family: 'Sarala', sans-serif;
+        color: white;
+    }
+    .logoMI{
+        padding-left: 30px;
+        height: 42px;
+    }   
+    h1{
+        color: #FFFFFF;
+        font-family: 'Righteous', cursive;
+        font-weight: 400;
+        font-size: 40px;
+        padding-bottom: 5px;
+        text-align:justify;
+    }
+    h2{
+        padding: 5px 0;
+        text-align: center;
+        color: white;   
+    }    
+    h3{
+        color: #FFFFFF;
+        font-family: 'Sarala';
+        padding-bottom: 10px;
+    }
+    .conteudo{
+        max-width: 100%;
+        padding-top: 60px;
+        min-height: 91vh; 
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(to right,#00467F, #A5CC82);
+    }
+    .introducao{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tituloIntroducao{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 10px;
+        min-width: 40rem;
+    }
+    .opcoesUsuarios{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }   
+
+    ul {
+        margin: 0;
+        padding:0;
+    }
+     
+    li {
+        list-style: none; 
+        margin: 10px;
+        display: inline;
+    }
+    li a {
+        padding: 5px 10px; 
+        margin:0;
+        border: 0px solid #f00; 
+        background: #00467F;
+        text-decoration: none;
+        color:#FFF;
+        /* cantos arredondados */
+        -webkit-border-radius:5px;
+        -moz-border-radius:5px;
+        border-radius:5px;
+    }
+    li a:hover {
+        background: #CCC;
+        color: #000; 
+        border-color: #000;
+    }  
+
+
+    .rodape{
+        display:flex;
+        border-top: 0.4px solid #24232F;
+        padding: 10px;
+        width:100%;
+        justify-content: center;
+        background:  #A5CC82;
+        max-width: 100%;
+    }
+
+    </style>
+</html>
