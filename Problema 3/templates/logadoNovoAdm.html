@@ -28,7 +28,7 @@
                 <div class="opcoesUsuarios">
                     <h3 class="subtituloIntroducao">Usuarios:</h3>
                     <ul>
-                        <li><a class ="links" id="adicionarAdm" href="novoAdm">Adicionar</a></li>
+                        <li><a class ="links" id="adicionarAdm" href="">Adicionar</a></li>
                         <li><a class ="links" id="verificarAdm" href="">Verificar</a></li>
                         <li><a class ="links" id="removerAdm" href="">Remover</a></li>
                     </ul>
@@ -41,8 +41,17 @@
                         <li><a class ="links" id="removerProduto" href="">Remover</a></li>
                     </ul>
                 </div>
-                <div id="resultado" class="resultado">
-
+                <div class="resultado">                    
+                    <form class="frmCadastro" id="frmCadastro">
+                        <h2>Dados do Novo adm</h2>
+                        <label class="input-field" for="txtNome">Nome</label><br>
+                        <input key="usuario" type="text" id="usuario" placeholder="Usuario"><br>
+                        
+                        <label class="input-field" for="Senha">Senha</label><br>
+                        <input key="senha" type="text" id="senha" placeholder="Senha"><br>
+                        
+                        <input type="submit" name="" id="btnCadastrarSalvar" value="Cadastrar">
+                    </form>
                 </div>
                 
             </section>
@@ -107,7 +116,7 @@
         color: white;   
     }    
     h3{
-        color: #FFFFFF;
+        color: white;
         font-family: 'Sarala';
         padding-bottom: 10px;
     }
@@ -166,7 +175,56 @@
         border-color: #000;
     }  
 
+    .resultado{
+        padding-top: 20px;
+    }
 
+    form{	
+        /*background-color: lightcyan;*/
+        background: #ccf1ab;
+        width: 260px;
+        height: auto;
+        margin: 0 auto auto auto; /*top, right, bottom, and left*/
+        padding: 20px;
+        border: 3px solid black;
+        border-radius: 10px;
+    }
+    label{
+        color: #2b85ce;
+        font-family: 'Righteous', cursive;
+        font-size: 25px;
+    }
+    
+    form input[type="text"]{
+        display: flex;
+        outline: none;
+        font-size: 0,9rem;
+        color: #FFFFFF;
+        border-radius: 3px;
+        padding: 0.5rem;
+        background: rgba(154, 203, 232, 1);
+        margin-bottom: 0.3rem;
+    }
+    form input[type="text"]::placeholder{
+        color: #FFFFFF;
+    }
+
+    form input[type="submit"]{
+        padding: 0.5rem;
+        background: linear-gradient(to left, #2b85ce,rgba(81, 106, 155, 0));
+        cursor: pointer;
+        color: #FFFFFF;
+        font-size: 0.9rem;
+        font-weight: 500;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+    
+    form input[type="submit"]:hover{
+        letter-spacing: 0.5px;
+        background: linear-gradient(to right,#2b85ce,rgba(81, 106, 155, 0));
+    }
+    
     .rodape{
         display:flex;
         border-top: 0.4px solid #24232F;

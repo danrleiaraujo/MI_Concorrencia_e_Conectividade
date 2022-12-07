@@ -12,7 +12,8 @@ adm = {
 #Retorna a lista:
 def getAdm():
     global adm
-    return adm
+    lista_adm = adm
+    return lista_adm
 
 #Adiciona:
 def adicionarAdm(usuario, senha):

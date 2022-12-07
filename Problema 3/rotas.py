@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect
 from static.usuarios import *
+import json
 
 app = Flask(__name__)
 
@@ -24,12 +25,22 @@ def login():
 
 # ---------------------------------------
 #Página de logado
-@app.route("/logado/<adm>/<senha>", methods = ['GET'])
+@app.route("/logado/<adm>/<senha>/", methods = ['GET'])
 def logado(adm, senha):
     verifica = verificaUser(adm, senha)
     if(verifica):
-        return render_template ('indexLogado.html', user = adm)
+        return render_template ('indexLogado.html', user = adm, s = senha)
     else:
         return login()
+
+# ---------------------------------------
+#Página de logado
+@app.route("/logado/<adm>/<senha>/novoAdm", methods = ['GET', 'POST'])
+def novo_Adm(adm, senha):
+    novo_usuario = request.form.get('usuario')
+    nova_senha = request.form.get('senha')
+    print(nova_senha, novo_usuario)
+    return render_template ('logadoNovoAdm.html', user = adm, s = senha)
+
 
 app.run(debug=True)
