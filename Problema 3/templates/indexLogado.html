@@ -22,24 +22,27 @@
             <section class="introducao">
                 <div class="tituloIntroducao">
                     <h1 class="tituloIntroducao1">Seja bem-vindo</h1>
-                    <h1 class="tituloIntroducao2"> Olá {{user}} </h1>
+                    <h1 class="tituloIntroducao2"> {{user}} </h1>
                 </div>
                 <h2 class="subtituloIntroducao">O que deseja fazer?</h2>
                 <div class="opcoesUsuarios">
                     <h3 class="subtituloIntroducao">Usuarios:</h3>
                     <ul>
-                        <li><a class ="links" href="">Adicionar</a></li>
-                        <li><a class ="links" href="">Verificar</a></li>
-                        <li><a class ="links" href="">Remover</a></li>
+                        <li><a class ="links" id="adicionarAdm" href="">Adicionar</a></li>
+                        <li><a class ="links" id="verificarAdm" href="">Verificar</a></li>
+                        <li><a class ="links" id="removerAdm" href="">Remover</a></li>
                     </ul>
                 </div>                
                 <div class="opcoesProdutos">
                     <h3 class="subtituloIntroducao">Produtos:</h3>
                     <ul>
-                        <li><a class ="links" href="">Adicionar</a></li>
-                        <li><a class ="links" href="">Verificar</a></li>
-                        <li><a class ="links" href="">Remover</a></li>
+                        <li><a class ="links" id="adicionarProduto" href="">Adicionar</a></li>
+                        <li><a class ="links" id="verificarProduto" href="">Verificar</a></li>
+                        <li><a class ="links" id="removerProduto" href="">Remover</a></li>
                     </ul>
+                </div>
+                <div id="resultado" class="resultado">
+
                 </div>
                 
             </section>
@@ -51,7 +54,6 @@
 
     </body>
     <style>
-
     @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
@@ -111,7 +113,7 @@
     }
     .conteudo{
         max-width: 100%;
-        padding-top: 60px;
+        padding-top: 80px;
         min-height: 91vh; 
         display: flex;
         flex-direction: column;
@@ -174,6 +176,5 @@
         background:  #A5CC82;
         max-width: 100%;
     }
-
     </style>
 </html>

@@ -1,6 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for, redirect
 from static.usuarios import *
-import ast
 
 app = Flask(__name__)
 
@@ -18,8 +17,9 @@ def login():
     usuario = request.form.get('usuario')
     senha = request.form.get('senha')
     verifica = verificaUser(usuario, senha)
+    l ="http://127.0.0.1:5000/logado/" + str(usuario) + "/" + str(senha)
     if(verifica):
-        return logado(usuario, senha)
+        return redirect(l)
     return render_template ('login.html')
 
 # ---------------------------------------
