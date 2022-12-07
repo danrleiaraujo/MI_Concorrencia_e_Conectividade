@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect
 from static.usuarios import *
+from static.produtosOfertados import *
 import json
 
 app = Flask(__name__)
@@ -34,13 +35,32 @@ def logado(adm, senha):
         return login()
 
 # ---------------------------------------
-#Página de logado
+#Página de cadastro do adm
 @app.route("/logado/<adm>/<senha>/novoAdm", methods = ['GET', 'POST'])
 def novo_Adm(adm, senha):
     novo_usuario = request.form.get('usuario')
     nova_senha = request.form.get('senha')
-    print(nova_senha, novo_usuario)
+    if(type(novo_usuario) != None or type(nova_senha) != None ):
+        result = adicionarAdm(novo_usuario, nova_senha)
+    if(result):
+        sucess = "Cadastrado com sucesso!"
+        print(getAdm())
+        return render_template ('logadoNovoAdm.html', sucesso = sucess, user = adm, s = senha)
     return render_template ('logadoNovoAdm.html', user = adm, s = senha)
+# ---------------------------------------
+#Página de cadastro de produto
+@app.route("/logado/<adm>/<senha>/novoProduto", methods = ['GET', 'POST'])
+def novo_Produto(adm, senha):
+    novo_nome = request.form.get('nome')
+    nova_quantidade = request.form.get('quantidade')   
+    novo_descricao = request.form.get('descricao')
+    nova_preco = request.form.get('preco')
+    result = adicionar_produtos(novo_nome, nova_quantidade, novo_descricao, nova_preco)
+    print(get_produtos_ofertados())
+    if(result):
+        sucess = "Cadastrado com sucesso!"
+        return render_template ('logadoNovoProduto.html', sucesso = sucess, user = adm, s = senha)
+    return render_template ('logadoNovoProduto.html', user = adm, s = senha)
 
 
 app.run(debug=True)

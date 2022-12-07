@@ -17,10 +17,15 @@ def getAdm():
 
 #Adiciona:
 def adicionarAdm(usuario, senha):
+    if(usuario == None or senha == None):
+        return False
+    if(usuario == "" or senha == ""):
+        return False
     global adm
     final = len(adm) + 1 
     novo = {"nome":usuario, "senha":senha}
     adm[final] = novo
+    return True
 
 #Verifica se existe:
 def verificaUser(usuario, senha):

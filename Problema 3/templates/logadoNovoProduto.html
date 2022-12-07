@@ -45,12 +45,19 @@
                     <form class="frmCadastro" id="frmCadastro" action="" method="post">
                         <h2>Dados do Novo adm</h2>
                         <label class="input-field" for="txtNome">Nome</label><br>
-                        <input type="text" name="usuario" id="usuario" placeholder="Usuario"><br>
+                        <input type="text" name="nome" id="nome" placeholder="Nome do Produto"><br>
                         
-                        <label class="input-field" for="Senha">Senha</label><br>
-                        <input type="text" name="senha" id="senha"  placeholder="Senha"><br>
+                        <label class="input-field" for="Senha">Quantidade</label><br>
+                        <input type="text" name="quantidade" id="quantidade"  placeholder="Quantidade em estoque"><br>
+
+                        <label class="input-field" for="txtNome">Descrição</label><br>
+                        <input type="text" name="descricao" id="descricao" placeholder="Descrição do Produto"><br>
+                        
+                        <label class="input-field" for="Senha">Preço</label><br>
+                        <input type="text" name="preco" id="preco"  placeholder="Preço do produto"><br>
                         
                         <input type="submit" name="" id="btnCadastrarSalvar" value="Cadastrar">
+                        
                         <h2>{{sucesso}}</h2>
                     </form>
                 </div>

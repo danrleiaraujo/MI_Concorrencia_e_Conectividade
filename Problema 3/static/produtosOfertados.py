@@ -3,11 +3,19 @@ produtos_ofertados = {}
 
 #Função para adicionar um produto ofertado.
 def adicionar_produtos(nome, qtd, descricao, preco):
+    if(nome == "" or qtd == "" or descricao == "" or preco == ""):
+        return False
+    if(nome ==  None or qtd == None or descricao == None or preco == None):
+        return False
     global produtos_ofertados
     #Criação do produto:
     produto = {"quantidade" : qtd, "desc_produto": descricao, "preco_produto" : preco}
     #Salva o produto e sua quantidade no dicionário de produtos ofertados.
     produtos_ofertados[nome] = produto
+    if nome in produtos_ofertados.keys():
+        return True;
+    else:
+        return False;
 
 #Função para remover certa quantidade do produto.
 def remover_produtos(nome, qtd):
@@ -37,12 +45,3 @@ def remover_produtos(nome, qtd):
 def get_produtos_ofertados():
     global produtos_ofertados
     return produtos_ofertados
-
-def run():
-    ''' ----------- TESTE ------------------------ '''
-    adicionar_produtos("blusa", 2, "moletom de algodão", 18.6)
-    print (get_produtos_ofertados())
-    remover_produtos("blusa", 1)
-    print (get_produtos_ofertados())
-
-run()
