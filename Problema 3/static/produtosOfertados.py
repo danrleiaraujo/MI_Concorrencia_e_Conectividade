@@ -1,24 +1,31 @@
 #inicio de um dicionário para os produtos
-produtos_ofertados = {}
+produtos_ofertados = {
+    "bahia123":{
+        "nome" : "Blusa", 
+        "quantidade" : 3, 
+        "desc_produto": "Blusa Preta", 
+        "preco_produto" : 16.78
+    }
+}
 
 #Função para adicionar um produto ofertado.
-def adicionar_produtos(nome, qtd, descricao, preco):
-    if(nome == "" or qtd == "" or descricao == "" or preco == ""):
+def adicionar_produtos(id, nome, qtd, descricao, preco):
+    if(id == "" or nome == "" or qtd == "" or descricao == "" or preco == ""):
         return False
-    if(nome ==  None or qtd == None or descricao == None or preco == None):
+    if(id == None or nome ==  None or qtd == None or descricao == None or preco == None):
         return False
     global produtos_ofertados
     #Criação do produto:
-    produto = {"quantidade" : qtd, "desc_produto": descricao, "preco_produto" : preco}
+    produto = {"nome" : nome, "quantidade" : qtd, "desc_produto": descricao, "preco_produto" : preco}
     #Salva o produto e sua quantidade no dicionário de produtos ofertados.
-    produtos_ofertados[nome] = produto
+    produtos_ofertados[id] = produto
     if nome in produtos_ofertados.keys():
         return True;
     else:
         return False;
 
 #Função para remover certa quantidade do produto.
-def remover_produtos(nome, qtd):
+def remover_produtos(id, nome, qtd):
     global produtos_ofertados
     #Caso exista o nome nos produtos ofertados
     if nome in produtos_ofertados:

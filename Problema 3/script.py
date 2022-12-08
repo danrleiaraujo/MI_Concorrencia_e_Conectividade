@@ -22,12 +22,12 @@ Requisítos:
 produtos_ofertados = { "Nome_produto" = {"quantidade" : qtd, "desc_produto": descricao, "preco_produto" : preco} }
 
 -> Interface para cliente:
-* Produtos
+* Produtos 
 * Comprar
 * Carrinho
 
--> Interface para cliente:
-* Adicionar/Remover produtos
+-> Interface para ADM:
+* Adicionar/Remover produtos - OK
 * Verificar produtos
 
 -> API Rest
