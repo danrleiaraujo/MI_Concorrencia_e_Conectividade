@@ -3,6 +3,12 @@ import sys
 import time
 import threading
 import queue
+from static import produtosOfertados
+
+dic = {}
+dic = produtosOfertados.get_produtos_ofertados()
+lojas = dic.keys()          #lista com nome de todas as lojas, que serão os processos
+print(lojas)
 
 processo_inicial = "A"
 procs = {"A", "B", "C"}
