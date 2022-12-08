@@ -20,10 +20,26 @@
 
         <main class="conteudo">
             <h2>Vitrine:</h2>
-            <div id="produtos">
-            </div>
+            {% for id in produtos.keys() %}
+                <div id="produtos">
+                    <h2>Vendido por: {{id}}</h3>
+                    {% for p in produtos[id].keys() %}
+                        <div class = "produto-single">
+                            <img  src ="../static/{{p}}.jpg"/>
+                            <p><b>{{p}}</b></p>
+                            <p>{{produtos[id][p].get('desc_produto')}}</p>
+                            <p> Restam: <b>{{produtos[id][p].get('quantidade')}}</b> quantidades</p>
+                            <a class = "carrinho" key="`+val.id+`" href = "#">adicionar ao carrinho!<a/>
+                        </div>
+                    {% endfor %}           
+                </div>               
+                {% endfor %}    
             <h2>Carrinho:</h2>
             <div id="carrinho">
+                <div class = "carrinho-single">
+                    <p>`+val.nome+` | quantidade: `+val.quantidade_carrinho+`</p>
+                    <hr>
+                </div>
             </div>            
             <h2>Finalizar a compra:</h2>
             <div id="finalizar">
@@ -36,77 +52,4 @@
         </footer>
 
     </body>
-    <script>
-        const items =[
-            {
-              id: 0,
-              nome: 'Camisa',
-              descricao:'Camisa preta',
-              img:"{{ url_for('static', filename = 'camisa.jpg')}}",
-              quantidade: 5,  
-              quantidade_carrinho: 0  
-            },            
-            {
-                id: 1,
-                nome: 'Short',
-                descricao:'Short jeans',
-                img:"{{ url_for('static', filename = 'short.jpg')}}",
-                quantidade: 3,  
-                quantidade_carrinho: 0  
-              },            
-              {
-                  id: 2,
-                  nome: 'Vestido',
-                  descricao:'Vestido longo',
-                  img:"{{ url_for('static', filename = 'vestido.jpg')}}",
-                  quantidade: 1,  
-                  quantidade_carrinho: 0   
-                },
-        ]
-        inicializarLoja = () =>{
-            var conteinerProdutos = document.getElementById('produtos');
-            items.map((val) =>{
-                conteinerProdutos.innerHTML += `
-                
-                <div class = "produto-single">
-                    <img  src ="`+val.img+ `"/>
-                    <p><b>`+val.nome+`</b></p>
-                    <p>`+val.descricao+`</p>
-                    <p> Restam: <b>`+val.quantidade+`</b> quantidades</p>
-                    <a class = "carrinho" key="`+val.id+`" href = "#">adicionar ao carrinho!<a/>
-                </div>
-                `; 
-            })
-        }
-        inicializarLoja();
-
-        atualizarCarrinho = () =>{
-            var conteinerCarrinho = document.getElementById('carrinho');
-            conteinerCarrinho.innerHTML ="";
-            items.map((val) =>{
-                if(val.quantidade_carrinho >0){
-                    conteinerCarrinho.innerHTML += `
-                    <div class = "carrinho-single">
-                        <p>`+val.nome+` | quantidade: `+val.quantidade_carrinho+`</p>
-                        <hr>
-                    </div>
-                `;}
-            })
-        }
-
-        var links = document.getElementsByClassName("carrinho");
-
-        for (var i=0; i < links.length; i++){
-            links[i].addEventListener("click", function(){
-                let key = this.getAttribute('key');
-                if(items[key].quantidade_carrinho < items[key].quantidade)
-                    items[key].quantidade_carrinho++;
-                atualizarCarrinho();
-                return false;
-            })
-        }
-
-
-
-    </script>
 </html>

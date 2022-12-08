@@ -9,8 +9,9 @@ app = Flask(__name__)
 # --------------------------------------- ROUTS ----------------------------------------  
 #Pagina inicial
 @app.route("/",  methods = ['GET'])
-def index():
-    return render_template ('index.html')
+def index():        
+    produtos = get_produtos_ofertados()
+    return render_template ('index.html', produtos = produtos)
 
 # --------------------------------------------------------------------------------------------
 #Página de login
@@ -91,8 +92,6 @@ def ver_produto(adm, senha):
     verifica = verificaUser(adm, senha)
     if(verifica):
         produtos = get_produtos_ofertados()
-        print(type(produtos))
-        print(produtos)
         return render_template ('logadoverProduto.html', user = adm, s = senha, produtos = produtos)
     else:
          return redirect("http://127.0.0.1:5000/login")

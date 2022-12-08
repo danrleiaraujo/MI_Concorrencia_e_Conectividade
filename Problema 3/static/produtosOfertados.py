@@ -1,14 +1,14 @@
 #inicio de um dicionário para os produtos
 produtos_ofertados = {
     "bahia123":{
-        "Blusa":{
+        "blusa":{
             "quantidade" : 5, 
             "desc_produto": "Blusa Preta", 
             "preco_produto" : 16.78
         },
-        "Camisa":{
+        "short":{
             "quantidade" : 3, 
-            "desc_produto": "Camisa Preta", 
+            "desc_produto": "short Preta", 
             "preco_produto" : 20.78
         }         ,
         "vestido":{
@@ -18,12 +18,12 @@ produtos_ofertados = {
         } 
     },    
     "Bahia":{
-        "Blusa":{
+        "blusa":{
             "quantidade" : 9, 
             "desc_produto": "Blusa Preta", 
             "preco_produto" : 20
         },
-        "Camisa":{
+        "camisa":{
             "quantidade" : 4, 
             "desc_produto": "Camisa Preta", 
             "preco_produto" : 17
