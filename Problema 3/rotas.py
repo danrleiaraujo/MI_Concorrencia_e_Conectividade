@@ -92,7 +92,7 @@ def ver_produto(adm, senha):
     verifica = verificaUser(adm, senha)
     if(verifica):
         produtos = get_produtos_ofertados()
-        return render_template ('logadoverProduto.html', user = adm, s = senha, produtos = produtos)
+        return render_template ('logadoVerProduto.html', user = adm, s = senha, produtos = produtos)
     else:
          return redirect("http://127.0.0.1:5000/login")
 # --------------------------------------------------------------------------------------------
