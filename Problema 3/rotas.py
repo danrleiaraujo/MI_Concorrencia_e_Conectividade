@@ -2,7 +2,6 @@
 from flask import Flask, render_template, request, url_for, redirect
 from static.usuarios import *
 from static.produtosOfertados import *
-import json
 
 app = Flask(__name__)
 
@@ -18,10 +17,10 @@ def index():
         id_loja = request.form.get('idLoja')
         nome = request.form.get('nome')
         quantidade = request.form.get('quantidade')
-        carrinho = [id_loja, nome, quantidade]
-        print(carrinho)
+        novocarrinho(id_loja, nome, quantidade)
+    produtos_carrinho = getcarrinho()
     produtos = get_produtos_ofertados()
-    return render_template ('index.html', produtos = produtos, carrinho = carrinho)
+    return render_template ('index.html', produtos = produtos, produtos_carrinho = produtos_carrinho)
     
 # --------------------------------------------------------------------------------------------
 #Página de login
@@ -71,9 +70,11 @@ def novo_produto(adm, senha):
     if(verifica):
         novo_id = request.form.get('idLoja')
         novo_nome = request.form.get('nome')
-        nova_quantidade = request.form.get('quantidade')   
+        nova_quantidade = request.form.get('quantidade')  
         novo_descricao = request.form.get('descricao')
         nova_preco = request.form.get('preco')
+        if(nova_quantidade != None): 
+            nova_quantidade = int(nova_quantidade)
         result = adicionar_produtos(novo_id, novo_nome, nova_quantidade, novo_descricao, nova_preco)
         if(result):
             sucess = "Cadastrado com sucesso!"
@@ -89,8 +90,6 @@ def ver_adm(adm, senha):
     verifica = verificaUser(adm, senha)
     if(verifica):
         adms = getAdm()
-        print(type(adms))
-        print(adms)
         return render_template ('logadoverAdm.html', user = adm, s = senha, adms = adms )    
     else:
         return redirect("http://127.0.0.1:5000/login")
@@ -114,6 +113,8 @@ def remover_produto(adm, senha):
         id = request.form.get('idLoja')
         nome = request.form.get('nome')
         quantidade = request.form.get('quantidade')   
+        if(quantidade != None): 
+            quantidade = int(quantidade)
         result = remover_produtos(id, nome, quantidade)
         if(result):
             sucess = "Removido com sucesso!"

@@ -40,11 +40,20 @@ def checkKey(dict, key):
     else: 
         return False
 
-def carrinho(id_loja, nome, quantidade):
+def getcarrinho():
+    global carrinho
+    return carrinho
+
+
+def novocarrinho(id_loja, nome, quantidade):
     global carrinho
     if id_loja in carrinho:
-        carrinho[id_loja].update(quantidade, quantidade)
-    carrinho[id_loja] ={'nome':nome, "quantidade":quantidade}
+        quantidadeAntiga = carrinho[id_loja].get(nome)
+        if nome in produtos_ofertados[id_loja].keys():
+            quantidade = int(quantidadeAntiga) + int(quantidade)
+            carrinho[id_loja] = {nome :quantidade}
+    else:
+            carrinho[id_loja] = {nome :quantidade}
 
 
 #Função para adicionar um produto ofertado.

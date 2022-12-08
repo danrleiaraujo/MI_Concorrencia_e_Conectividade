@@ -44,7 +44,11 @@
             <h2>Carrinho:</h2>
             <div id="carrinho">
                 <div class = "carrinho-single">
-                    <p>{{id_loja}} | {{nome}}| quantidade: {{quantidade}}</p>
+                    {% for id in produtos_carrinho %}
+                         {% for p in produtos_carrinho[id] %}
+                            <p>{{id}} | {{produtos_carrinho[id]}}| quantidade: {{produtos_carrinho[id].get(p)}}</p>
+                        {% endfor %}
+                    {% endfor %}
                     <hr>
                 </div>
             </div>            
