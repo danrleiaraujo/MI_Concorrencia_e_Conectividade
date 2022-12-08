@@ -10,10 +10,12 @@ dic = produtosOfertados.get_produtos_ofertados()
 lojas = dic.keys()          #lista com nome de todas as lojas, que serão os processos
 print(lojas)
 
+procs = dic
+
 processo_inicial = "A"
 procs = {"A", "B", "C"}
-eventos_counts = {"A": 2, "B": 0, "C": 0}
-fila_mensagens = {"A" : queue.Queue(), "B": queue.Queue(), "C": queue.Queue()}
+eventos_counts = {"A": 0, "B": 0, "C": 0}
+fila_mensagens = {"A": queue.Queue(), "B": queue.Queue(), "C": queue.Queue()}
 
 #criação de mensagem
 class Mensagem(object):
@@ -80,6 +82,7 @@ class Processo(threading.Thread):
             print("Tipo de mensagem desconhecido!!")
 
     def run(self):
+        print(eventos_counts)
         while True:
             if self.temRecurso:
                 self.usarRecurso()
@@ -128,6 +131,7 @@ class Processo(threading.Thread):
             print("Processo {}: {}".format(self.nome, self.requisicoes_fila))
             print("Processo {} Clock: {}".format(self.nome, self.lamport_clock))
             time.sleep(1)
+            print(eventos_counts)
 
     def checkDisponi(self):
         req_antigo = {k: False for k in self.outrosProcessos}
