@@ -66,7 +66,7 @@ def novo_produto(adm, senha):
         result = adicionar_produtos(novo_id, novo_nome, nova_quantidade, novo_descricao, nova_preco)
         if(result):
             sucess = "Cadastrado com sucesso!"
-            return render_template ('logadoNovoProduto.html', sucesso = sucess, user = adm, s = senha)
+            return render_template ('logadoNovoProduto.html', sucess = sucess, user = adm, s = senha)
         return render_template ('logadoNovoProduto.html', user = adm, s = senha)
     else:
         return redirect("http://127.0.0.1:5000/login")

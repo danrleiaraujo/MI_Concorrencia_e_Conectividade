@@ -55,11 +55,14 @@
                         <tbody class="corpo">
                                 <tr class="coluna">
                                     {% for p in produtos.keys() %}
+                                    {% for v in produtos[p].keys() %}
                                         <td class="linha">{{p}}</td>
-                                        {% for v in produtos[p].values() %}
                                             <td class="linha">{{v}}</td>
-                                        {% endfor %}                                        
-                                        </tr>   
+                                            {% for z in produtos[p][v].values() %}
+                                                <td class="linha">{{z}}</td>    
+                                            {% endfor %}                       
+                                        </tr>        
+                                        {% endfor %}   
                                     {% endfor %}
                                 </tr>     
                         </tbody>
