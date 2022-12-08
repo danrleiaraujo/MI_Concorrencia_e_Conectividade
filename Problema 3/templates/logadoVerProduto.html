@@ -40,27 +40,30 @@
                         <li><a class ="links" id="verificarProduto" href="/logado/{{user}}/{{s}}/verProduto">Verificar</a></li>
                         <li><a class ="links" id="removerProduto" href="/logado/{{user}}/{{s}}/removerProduto">Remover</a></li>
                     </ul>
-                    </ul>
                 </div>
-                <div class="resultado">                    
-                    <form class="frmCadastro" id="frmCadastro" action="" method="post">
-                        <h2>Dados do Novo Produto</h2>
-                        <label class="input-field" for="txtNome">Nome</label><br>
-                        <input type="text" name="nome" id="nome" placeholder="Nome do Produto"><br>
-                        
-                        <label class="input-field" for="Senha">Quantidade</label><br>
-                        <input type="text" name="quantidade" id="quantidade"  placeholder="Quantidade em estoque"><br>
-
-                        <label class="input-field" for="txtNome">Descrição</label><br>
-                        <input type="text" name="descricao" id="descricao" placeholder="Descrição do Produto"><br>
-                        
-                        <label class="input-field" for="Senha">Preço</label><br>
-                        <input type="text" name="preco" id="preco"  placeholder="Preço do produto"><br>
-
-                        <input type="submit" name="" id="btnCadastrarSalvar" value="Cadastrar">
-                        
-                        <h2>{{sucesso}}</h2>
-                    </form>
+                <div class="resultado">
+                    <table class="tabela" id="tabela">
+                        <thead class="topo">
+                            <tr class="coluna">
+                                <th class="linha1">Nome</th>
+                                <th class="linha1">Quantidade</th>
+                                <th class="linha1">Descrição</th>
+                                <th class="linha1">Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody class="corpo">
+                            {% for produto in produtos %}
+                                <tr class="coluna">
+                                <td class="linha">{{produto}}</td>
+                                    {% for p in produto %}
+                                        <td class="linha">{{p}}</td>
+                                        <td class="linha">{{p}}</td>
+                                        <td class="linha">{{p}}</td>
+                                    {% endfor %}
+                            {% endfor %}
+                                </tr>                     
+                        </tbody>
+                    </table>
                 </div>
                 
             </section>
@@ -125,7 +128,7 @@
         color: white;   
     }    
     h3{
-        color: white;
+        color: #FFFFFF;
         font-family: 'Sarala';
         padding-bottom: 10px;
     }
@@ -184,56 +187,7 @@
         border-color: #000;
     }  
 
-    .resultado{
-        padding-top: 20px;
-    }
 
-    form{	
-        /*background-color: lightcyan;*/
-        background: #ccf1ab;
-        width: 260px;
-        height: auto;
-        margin: 0 auto auto auto; /*top, right, bottom, and left*/
-        padding: 20px;
-        border: 3px solid black;
-        border-radius: 10px;
-    }
-    label{
-        color: #2b85ce;
-        font-family: 'Righteous', cursive;
-        font-size: 25px;
-    }
-    
-    form input[type="text"]{
-        display: flex;
-        outline: none;
-        font-size: 0,9rem;
-        color: #FFFFFF;
-        border-radius: 3px;
-        padding: 0.5rem;
-        background: rgba(154, 203, 232, 1);
-        margin-bottom: 0.3rem;
-    }
-    form input[type="text"]::placeholder{
-        color: #FFFFFF;
-    }
-
-    form input[type="submit"]{
-        padding: 0.5rem;
-        background: linear-gradient(to left, #2b85ce,rgba(81, 106, 155, 0));
-        cursor: pointer;
-        color: #FFFFFF;
-        font-size: 0.9rem;
-        font-weight: 500;
-        border-radius: 4px;
-        transition: all 0.3s ease;
-    }
-    
-    form input[type="submit"]:hover{
-        letter-spacing: 0.5px;
-        background: linear-gradient(to right,#2b85ce,rgba(81, 106, 155, 0));
-    }
-    
     .rodape{
         display:flex;
         border-top: 0.4px solid #24232F;
