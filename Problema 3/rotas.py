@@ -8,11 +8,21 @@ app = Flask(__name__)
 
 # --------------------------------------- ROUTS ----------------------------------------  
 #Pagina inicial
-@app.route("/",  methods = ['GET'])
-def index():        
+@app.route("/",  methods =['GET', 'POST'])
+def index():
+    id_loja = request.form.get('idLoja')
+    nome = request.form.get('nome')
+    quantidade= request.form.get('nome')
+    
+    if (request.form.get('quantidade') != None):        
+        id_loja = request.form.get('idLoja')
+        nome = request.form.get('nome')
+        quantidade = request.form.get('quantidade')
+        carrinho = [id_loja, nome, quantidade]
+        print(carrinho)
     produtos = get_produtos_ofertados()
-    return render_template ('index.html', produtos = produtos)
-
+    return render_template ('index.html', produtos = produtos, carrinho = carrinho)
+    
 # --------------------------------------------------------------------------------------------
 #Página de login
 @app.route("/login", methods = ['GET', 'POST'])

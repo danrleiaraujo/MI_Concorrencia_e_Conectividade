@@ -25,11 +25,18 @@
                     <h2>Vendido por: {{id}}</h3>
                     {% for p in produtos[id].keys() %}
                         <div class = "produto-single">
-                            <img  src ="../static/{{p}}.jpg"/>
-                            <p><b>{{p}}</b></p>
-                            <p>{{produtos[id][p].get('desc_produto')}}</p>
-                            <p> Restam: <b>{{produtos[id][p].get('quantidade')}}</b> quantidades</p>
-                            <a class = "carrinho" key="`+val.id+`" href = "#">adicionar ao carrinho!</a>
+                            <form class="frmCadastro" id="frmCadastro" action="" method="post">
+                                <img  src ="../static/{{p}}.jpg"/>
+                                <p><b>{{p}}</b></p>
+                                <p class="descricao">{{produtos[id][p].get('desc_produto')}}</p>
+                                <p> Restam: <b>{{produtos[id][p].get('quantidade')}}</b> quantidades</p>
+                                
+                                <input type="hidden" id="idLoja" name="idLoja" value="{{id}}">
+                                <input type="hidden" id="nome" name="nome" value="{{p}}">
+                                <input type="hidden" id="quantidade" name="quantidade" value="1">
+
+                                <button class="button" type="submit" name="" id="btnCadastrarSalvar" value="adicionar ao carrinho!">adicionar ao carrinho!</button>
+                            </form>
                         </div>
                     {% endfor %}           
                 </div>               
@@ -37,7 +44,7 @@
             <h2>Carrinho:</h2>
             <div id="carrinho">
                 <div class = "carrinho-single">
-                    <p>`+val.nome+` | quantidade: `+val.quantidade_carrinho+`</p>
+                    <p>{{id_loja}} | {{nome}}| quantidade: {{quantidade}}</p>
                     <hr>
                 </div>
             </div>            

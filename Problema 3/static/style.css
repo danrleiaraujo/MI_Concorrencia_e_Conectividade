@@ -103,7 +103,20 @@ h2{
     padding: 4px 0;
     font-size: 18px;
 }
+button[type="submit"]{
+    background: linear-gradient(to left, #A5CC82,rgba(81, 106, 155, 0));
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    display: block;
+    padding: 4px 0;
+    font-size: 18px;
+}
 
+button[type="submit"]:hover{
+    letter-spacing: 0.5px;
+    background: linear-gradient(to right,#A5CC82,rgba(81, 106, 155, 0));
+}
 .rodape{
     display:flex;
     border-top: 0.4px solid #24232F;

@@ -1,4 +1,6 @@
 #inicio de um dicionário para os produtos
+
+carrinho = {}
 produtos_ofertados = {
     "bahia123":{
         "blusa":{
@@ -37,6 +39,13 @@ def checkKey(dict, key):
         return True
     else: 
         return False
+
+def carrinho(id_loja, nome, quantidade):
+    global carrinho
+    if id_loja in carrinho:
+        carrinho[id_loja].update(quantidade, quantidade)
+    carrinho[id_loja] ={'nome':nome, "quantidade":quantidade}
+
 
 #Função para adicionar um produto ofertado.
 def adicionar_produtos(id, nome, qtd, descricao, preco):
