@@ -45,6 +45,7 @@
                     <table class="tabela" id="tabela">
                         <thead class="topo">
                             <tr class="coluna">
+                                <th class="linha1">ID_Loja</th>
                                 <th class="linha1">Nome</th>
                                 <th class="linha1">Quantidade</th>
                                 <th class="linha1">Descrição</th>
@@ -52,16 +53,15 @@
                             </tr>
                         </thead>
                         <tbody class="corpo">
-                            {% for produto in produtos %}
                                 <tr class="coluna">
-                                <td class="linha">{{produto}}</td>
-                                    {% for p in produto %}
+                                    {% for p in produtos.keys() %}
                                         <td class="linha">{{p}}</td>
-                                        <td class="linha">{{p}}</td>
-                                        <td class="linha">{{p}}</td>
+                                        {% for v in produtos[p].values() %}
+                                            <td class="linha">{{v}}</td>
+                                        {% endfor %}                                        
+                                        </tr>   
                                     {% endfor %}
-                            {% endfor %}
-                                </tr>                     
+                                </tr>     
                         </tbody>
                     </table>
                 </div>
@@ -187,6 +187,34 @@
         border-color: #000;
     }  
 
+    .tabela{
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+    .tabela thead tr th:nth-child(1){width: 60%;}
+    .tabela thead tr th:nth-child(2){width: 40%;}
+    .tabela tbody tr td:nth-child(1){width: 60%;}
+    .tabela tbody tr td:nth-child(2){width: 40%;}
+    
+    .corpo{
+        background-color: #2b85ce;
+    }
+    .linha1{
+        color: #FFFFFF;
+        font-family: 'Righteous', cursive;
+        font-weight: 400;
+        font-size: 30px;
+        padding: 10px;
+    }
+    .linha{
+        border: 0.4px solid #24232F;
+        text-align: center;
+        color: #FFFFFF;
+        font-family:'Sarala', sans-serif;
+        font-weight: 300;
+        font-size: 15px;
+    }
 
     .rodape{
         display:flex;
