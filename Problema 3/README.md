@@ -24,6 +24,7 @@ quantidade existente em seu estoque ou que uma mesma unidade seja vendida para c
         <li><a href="#requisitos"> <b>Requisitos Atendidos</b> </a> </li>
 		<li><a href="#tecnologias"> <b>Tecnologias</b> </a></li>
 		<li><a href="#implementacao"> <b>Implementação</b> </a> </li>
+		<li><a href="#pre-requisitos"> <b>Pré-requísitos</b> </a> </li>
         <li><a href="#metodologia"> <b>Metodologia</b> </a> </li>
         <li><a href="#conclusao"> <b>Conclusão</b> </a> </li>
 	</ul>	
@@ -122,6 +123,15 @@ quantidade existente em seu estoque ou que uma mesma unidade seja vendida para c
         <li>Recebe informações através do método GET</li>
         <li>Envia informações através do método POST</li>
     </p>    
+    <h2><p><b>MQTT:</b></p></h2>
+    <p align="justify"> 
+        O MQTT é responsável para sincronizar as lojas, ele faz um publish no tópico "/lojas/online/"
+        com a mensagem "lojasOnline", que é um dicionário "lojasOnline = {MATRICULA : client_id}" convertido em string. 
+        Caso quem receba o dicionário, tenha um dicionário menor, ela atualiza o dicionário local pelo recebido.
+        <h3>Exemplo:</h3>
+	    <img src= "https://github.com/danrleiaraujo/MI_Concorrencia_e_Conectividade/tree/main/Problema%203/static/exemploMqtt.png">
+        <li>Iniciei 3 lojas, cada um com uma matricula diferente, assim que iniciava, o dicionário se atualizava</li>
+    </p>      
 </div>
 
 <div id="conclusao">
