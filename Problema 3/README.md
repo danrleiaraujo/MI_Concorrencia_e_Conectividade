@@ -28,7 +28,7 @@ quantidade existente em seu estoque ou que uma mesma unidade seja vendida para c
 		<li><a href="#tecnologias"> <b>Tecnologias</b> </a></li>
 		<li><a href="#implementacao"> <b>Implementação</b> </a> </li>
 		<li><a href="#pre-requisitos"> <b>Pré-requísitos</b> </a> </li>
-        <li><a href="#metodologia"> <b>Metodologia</b> </a> </li>
+        <li><a href="#desenvolvimento"> <b>Desenvolvimento</b> </a> </li>
         <li><a href="#conclusao"> <b>Conclusão</b> </a> </li>
 	</ul>	
 
@@ -98,8 +98,8 @@ quantidade existente em seu estoque ou que uma mesma unidade seja vendida para c
     <li>Paho.MQTT</li>
     <li>mosquitto</li>
 </div>
-<div id="metodologia">
-    <h1>Metodologia</h1>
+<div id="desenvolvimento">
+    <h1>Desenvolvimento</h1>
     <h2><p><b>Interação com usuário:</b></p></h2>
     <p align="justify"> 
         O usuário deve se comunicar através de uma interface web, onde uma API faz a requisição dos dados.
@@ -119,6 +119,7 @@ quantidade existente em seu estoque ou que uma mesma unidade seja vendida para c
         A API é responsável por passar e receber informações vindas da página web ao processamento de dados, sendo assim ela:
         <li>Recebe informações através do método GET</li>
         <li>Envia informações através do método POST</li>
+        É possível acessar ela através do arquivo "rotas.py", onde o Flask levanta um servidor para acessarmos nossa página WEB.
     </p>    
     <h2><p><b>MQTT:</b></p></h2>
     <p align="justify"> 
