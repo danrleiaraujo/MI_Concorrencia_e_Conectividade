@@ -137,6 +137,8 @@ quantidade existente em seu estoque ou que uma mesma unidade seja vendida para c
 <div id="conclusao">
     <h1>Conclusão</h1>
     <p id="descricao" align="justify">
-    ADICIONAR TEXTO.     
+    O projeto não cumpriu todos os requisitos exigidos, mas alguns dos requisitos que não foram feitos ficaram construídos pela metade ou iniciados. 
+    </p>
+    Na sicronização de banco de dados com uso de algoritmo de sincronização, não conseguimos colocar em prática, pórem foi entendido os conceitos do que é o algoritmo de Lamport, desta forma, a atualização automática dos bancos de dados também não ocorreu. O uso da API REST funcionou de forma esperada e assim foi feita a visualização de produtos, adição, remoção e verificação de todos os produtos cadastrados em todas as lojas. Com isso, os itens do carrinho não foram processados e as compras não são finalizadas, mas conseguimos adicionar os produtos ao carrinho.
     </p>
 </div>
