@@ -1,4 +1,4 @@
-<div id="titulo">
+<div id="inicio">
     <h1 id="titulo" align="center"> Problema 3 - Serviço de Marketplace Distribuído</h1>	
     <h2 id="titulo" align="center"> Saldão dos Computadores.</h1>
 	<p id="descricao" align="justify">
@@ -13,6 +13,9 @@ cadastrados em qualquer servidor que faz parte do consórcio. Para atender as lo
 servidores de marketplace deve ser estabelecida de forma que as lojas não vendam mais produtos do que a 
 quantidade existente em seu estoque ou que uma mesma unidade seja vendida para clientes distintos 
     </p>
+
+<p align ="center"><img src="http://img.shields.io/static/v1?label=STATUS&message=Concluido&color=GREEN&style=for-the-badge"/>
+</p>
 
 </div>
 
@@ -29,12 +32,6 @@ quantidade existente em seu estoque ou que uma mesma unidade seja vendida para c
         <li><a href="#conclusao"> <b>Conclusão</b> </a> </li>
 	</ul>	
 
-<div id="inicio">
-    <h1>Inicio</h1>
-    <p id="descricao" align="justify">
-    ADICIONAR TEXTO.     
-    </p>
-</div>
 
 <div id="equipe">
     <h1>Equipe de Desenvolvimento</h1>
@@ -96,7 +93,7 @@ quantidade existente em seu estoque ou que uma mesma unidade seja vendida para c
 </div>
 <div id="pre-requesitos">
     <h1>Pré-requisitos</h1>
-    <h2>Antes de começar, você vai precisar ter instalado:</h32>
+    <h1>Antes de começar, você vai precisar ter instalado:</h1>
     <li>Flask</li>
     <li>Paho.MQTT</li>
     <li>mosquitto</li>
