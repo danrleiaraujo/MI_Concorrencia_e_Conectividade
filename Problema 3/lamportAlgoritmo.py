@@ -7,16 +7,24 @@ from static import produtosOfertados
 
 dic = {}
 dic = produtosOfertados.get_produtos_ofertados()
-lojas = dic.keys()          #lista com nome de todas as lojas, que serão os processos
-print(lojas)
+lojas = []
+lojas = dic.keys()         #lista com nome de todas as lojas, que serão os processos
 
 procs = dic
+
 
 processo_inicial = "A"
 procs = {"A", "B", "C"}
 eventos_counts = {"A": 0, "B": 0, "C": 0}
 fila_mensagens = {"A": queue.Queue(), "B": queue.Queue(), "C": queue.Queue()}
-
+"""processo_inical = lojas[0]
+eventos_counts = {}
+fila_mensagens = {}
+#inicialização
+for id in lojas:
+    eventos_counts[id] = 0
+    fila_mensagens[id] = queue.Queue()
+"""
 #criação de mensagem
 class Mensagem(object):
     def __init__(self, msg, rotulo_data, emissor, receptor):
