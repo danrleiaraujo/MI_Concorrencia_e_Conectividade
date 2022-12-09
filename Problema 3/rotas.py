@@ -1,5 +1,5 @@
 # --------------------------------------- IMPORTs ----------------------------------------  
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, redirect
 from static.usuarios import *
 from static.produtosOfertados import *
 

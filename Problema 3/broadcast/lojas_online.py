@@ -5,7 +5,6 @@ import ast
 
 from paho.mqtt import client as mqtt_client
 import paho.mqtt.client as mqtt
-from static import produtosOfertados
 
 '''
 Conecta ao broker e diz que está online
@@ -32,9 +31,9 @@ keep_alive_broker = 60
 MATRICULA = random.randint(1000,9999) #Adiciona um numero aleatório na matricula
 
 # Criando o id
-#client_id = socket.gethostbyname(socket.gethostname()) #Salva o IPLocal como cliente_id
-listaProdutos = {}
-listaProdutos = produtosOfertados.get_produtos_ofertados()
+client_id = socket.gethostbyname(socket.gethostname()) #Salva o IPLocal como cliente_id
+#listaProdutos = {}
+#listaProdutos = produtosOfertados.get_produtos_ofertados()
 
 # Caso o broker tenha usuario e senha: (Não é o nosso caso)
 username = '' 
@@ -42,7 +41,8 @@ password = ''
 
 #Lojas online
 lojasOnline = {
-    MATRICULA: listaProdutos
+    MATRICULA: client_id
+    #MATRICULA: listaProdutos
 }
 #-------------------------------------------------------------------------------------------
 '''-------------------Bloco de conexão--------------------'''
@@ -89,7 +89,7 @@ def connect_mqtt(username, password) -> mqtt_client:
         client.subscribe(topicSub)
         if rc != 0:
             print("Falha de conexão, código: %d\n", rc)
-    client = mqtt_client.Client(listaProdutos)
+    client = mqtt_client.Client()
     client.username_pw_set(username, password)
     client.on_connect = on_connect
     client.connect(broker, port)
