@@ -55,7 +55,7 @@ quantidade existente em seu estoque ou que uma mesma unidade seja vendida para c
 <div id="requisitos">
     <h1>Requisitos do sistema</h1>
 	<ul>
-		<li>Sicronização de banco de dados com uso de algoritmo de sincronização :heavy_check_mark:</li>
+		<li>Sicronização de banco de dados com uso de algoritmo de sincronização :heavy_multiplication_x:</li>
 		<li>Atualização automática dos bancos de dados :heavy_multiplication_x:</li>
 		<li>Uso do protocolo baseado em uma API REST :heavy_check_mark:</li>
 		<li>Transações atômicas sobre os itens do carrinho de compras :heavy_multiplication_x:</li>
