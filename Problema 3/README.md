@@ -129,7 +129,7 @@ quantidade existente em seu estoque ou que uma mesma unidade seja vendida para c
         com a mensagem "lojasOnline", que é um dicionário "lojasOnline = {MATRICULA : client_id}" convertido em string. 
         Caso quem receba o dicionário, tenha um dicionário menor, ela atualiza o dicionário local pelo recebido.
         <h3>Exemplo:</h3>
-	    <img src= "https://github.com/danrleiaraujo/MI_Concorrencia_e_Conectividade/tree/main/Problema%203/static/exemploMqtt.png">
+    	<img src= "https://github.com/danrleiaraujo/MI_Concorrencia_e_Conectividade/blob/main/Problema%203/static/exemploMqtt.png"/>
         <li>Iniciei 3 lojas, cada um com uma matricula diferente, assim que iniciava, o dicionário se atualizava</li>
     </p>      
 </div>
